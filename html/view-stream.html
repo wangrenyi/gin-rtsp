@@ -10,21 +10,15 @@
 
 </head>
 <body>
-	<canvas id="video-canvas"></canvas>
+<canvas id="video-canvas"></canvas>
 
-	<canvas id="video-canvas1"></canvas>
+<script type="text/javascript" src="jsmpeg.min.js"></script>
+<script type="text/javascript">
+	var canvas = document.getElementById('video-canvas');
+	var url = 'ws://localhost:3000';
 
-	<script type="text/javascript" src="jsmpeg.min.js"></script>
-	<script type="text/javascript">
-		var canvas = document.getElementById('video-canvas');
-		var url = 'ws://192.168.3.19:4000/stream/live/5b96bff4-bdb2-3edb-9d6e-f96eda03da56';
-		var player = new JSMpeg.Player(url, {canvas: canvas});
+	var player = new JSMpeg.Player(url + '/stream/live/08066448-ebcb-3465-996e-af4148687b23', {canvas: canvas})//,
 
-
-		var canvas1 = document.getElementById('video-canvas1');
-		var url1 = 'ws://127.0.0.1:3000/stream/live/5b96bff4-bdb2-3edb-9d6e-f96eda03da56';
-		var player1 = new JSMpeg.Player(url1, {canvas: canvas1});
-
-	</script>
+</script>
 </body>
 </html>

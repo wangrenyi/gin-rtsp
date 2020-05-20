@@ -81,8 +81,8 @@ func runFFMPEG(rtsp string, playCh string) (*exec.Cmd, io.WriteCloser, error) {
 		"-rtsp_transport",
 		"tcp",
 		"-re",
-		"-timeout",
-		"5",
+		//"-timeout",
+		//"5",
 		"-i",
 		rtsp,
 		"-q",
@@ -96,7 +96,9 @@ func runFFMPEG(rtsp string, playCh string) (*exec.Cmd, io.WriteCloser, error) {
 		"-an",
 		"-s",
 		"960x540",
-		fmt.Sprintf("http://127.0.0.1:3000/stream/upload/%s", playCh),
+		"-r",
+		"30",
+		fmt.Sprintf("http://localhost:3000/stream/upload/%s", playCh),
 	}
 
 	util.Log().Debug("FFmpeg cmd: ffmpeg %v", strings.Join(params, " "))
